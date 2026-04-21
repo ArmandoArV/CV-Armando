@@ -46,10 +46,23 @@ jobs:
           latexmk_use_xelatex: false
           latexmk_shell_escape: false
 
-      - name: Commit PDF to repo
-        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+      - name: Verify single page
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -f main.pdf
-          git diff --cached --quiet && echo "No PDF changes" || git commit -m "build: update compiled PDF [skip ci]" && git push
+          sudo apt-get install -y -qq poppler-utils > /dev/null 2>&1
+          PAGES=$(pdfinfo main.pdf | grep Pages | awk '{print $2}')
+          echo "PDF has $PAGES page(s)"
+          if [ "$PAGES" -ne 1 ]; then
+            echo "::error::CV must be exactly 1 page but has $PAGES pages"
+            exit 1
+          fi
+
+      - name: Publish PDF to latest release
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete latest --yes 2>/dev/null || true
+          gh release create latest main.pdf \
+            --title "Latest CV" \
+            --notes "Auto-built from $(git rev-parse --short HEAD)" \
+            --latest

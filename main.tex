@@ -1,7 +1,7 @@
 \documentclass[10pt,a4paper]{article}
 
 % Packages
-\usepackage[margin=0.45in]{geometry}
+\usepackage[margin=0.4in, top=0.3in, bottom=0.3in]{geometry}
 \usepackage{parskip}
 \usepackage{enumitem}
 \usepackage{xcolor}
@@ -12,6 +12,10 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{hyperref}
+
+% Remove paragraph spacing
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
 
 % Colors
 \definecolor{ThemeBlue}{RGB}{0,80,160}
@@ -33,10 +37,10 @@
   {0pt}
   {\titlerule[0.8pt]\vspace{-2pt}}
 
-\titlespacing*{\section}{0pt}{5pt}{1pt}
+\titlespacing*{\section}{0pt}{4pt}{1pt}
 
 % Lists
-\setlist[itemize]{left=0pt, nosep, itemsep=0pt, topsep=1pt}
+\setlist[itemize]{left=0pt, nosep, itemsep=0pt, topsep=0pt, parsep=0pt}
 
 % Header
 \newcommand{\header}{
@@ -87,16 +91,11 @@ M.Sc. in Artificial Intelligence
 \section*{Professional Experience}
 
 \experience{Microsoft}{Feb 2025 -- Present}{Software Engineer}{Mexico City}{C\# | .NET | Azure | Cosmos DB | CI/CD}
-    \item Built and operated cloud-native distributed systems on \tech{Azure}, focusing on scalability, performance, and high availability across production environments
+    \item Built and operated cloud-native distributed systems on \tech{Azure}, focusing on scalability, high availability, and disaster recovery across \tech{Azure SQL}, \tech{Cosmos DB}, and storage layers
     \item Developed backend services using \tech{C\#}, \tech{.NET}, \tech{Azure SQL}, and \tech{Cosmos DB}, supporting enterprise-grade workloads and data pipelines
-    \item Designed and implemented CI/CD release pipelines (\tech{OneBranch YAML + EV2}) with staged deployments, slot swaps, and rollback strategies
-    \item Improved deployment reliability by enhancing configuration management and parameterization in \tech{ADO} pipelines
-    \item Strengthened engineering quality through code reviews, automated validation, and test coverage improvements within CI/CD gates
-    \item Built and maintained observability and monitoring systems using \tech{Azure Monitor} and \tech{Geneva}, enabling proactive detection and mitigation of production issues
-    \item Defined and implemented disaster recovery and high-availability strategies across \tech{Azure} services, including SQL, Cosmos DB, and storage layers
-    \item Contributed to large-scale cloud modernization and migration initiatives, handling high-volume operational workloads across Azure platforms
-    \item Enforced DevOps governance and compliance practices, including PR validation, work item linkage, and release controls in \tech{Azure DevOps}
-    \item Supported live-site operations, performing incident response, root cause analysis, and mitigation for production systems
+    \item Designed CI/CD release pipelines (\tech{OneBranch YAML + EV2}) with staged deployments, slot swaps, rollback strategies, and automated validation gates
+    \item Built observability systems using \tech{Azure Monitor} and \tech{Geneva}, enabling proactive detection and mitigation of production issues
+    \item Supported live-site operations including incident response, root cause analysis, and DevOps governance in \tech{Azure DevOps}
 \closeexperience
 
 \experience{Siemens Digital Industries}{May 2024 -- May 2025}{Software Engineer Intern}{Mexico City}{Java | Spring Boot | Oracle | Mendix}
