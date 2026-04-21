@@ -1,149 +1,114 @@
 \documentclass[10pt,a4paper]{article}
 
-% Packages
-\usepackage[margin=0.4in, top=0.3in, bottom=0.3in]{geometry}
-\usepackage{parskip}
-\usepackage{enumitem}
-\usepackage{xcolor}
-\usepackage{fontawesome5}
-\usepackage{titlesec}
-\usepackage{tikz}
-\usepackage{array}
+\usepackage[margin=0.5in, top=0.45in, bottom=0.45in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fontawesome5}
 \usepackage{hyperref}
 
-% Remove paragraph spacing
 \setlength{\parskip}{0pt}
 \setlength{\parindent}{0pt}
 
-% Colors
-\definecolor{ThemeBlue}{RGB}{0,80,160}
-\definecolor{LightBlue}{RGB}{230,242,255}
-\definecolor{DarkBlue}{RGB}{0,60,120}
-\definecolor{AccentBlue}{RGB}{0,120,215}
+\hypersetup{colorlinks=true, urlcolor=blue!50!black, linkcolor=black}
 
-% Hyperlinks
-\hypersetup{
-    colorlinks=true,
-    urlcolor=ThemeBlue,
-    linkcolor=DarkBlue
-}
+% Harvard-style sections: bold uppercase with thin rule below
+\titleformat{\section}{\bfseries\normalsize\uppercase}{}{0pt}{}[\vspace{-5pt}\rule{\textwidth}{0.4pt}]
+\titlespacing*{\section}{0pt}{6pt}{3pt}
 
-% Section styling
-\titleformat{\section}
-  {\color{DarkBlue}\normalfont\normalsize\bfseries\uppercase}
-  {}
-  {0pt}
-  {\titlerule[0.8pt]\vspace{-2pt}}
-
-\titlespacing*{\section}{0pt}{4pt}{1pt}
-
-% Lists
-\setlist[itemize]{left=0pt, nosep, itemsep=0pt, topsep=0pt, parsep=0pt}
-
-% Header
-\newcommand{\header}{
-    \noindent
-    \begin{tikzpicture}[remember picture,overlay]
-        \node[rectangle, fill=DarkBlue, anchor=north, minimum width=\paperwidth, minimum height=0.95cm] 
-        at (current page.north) {};
-        \node[anchor=center] at ([yshift=-0.45cm]current page.north) 
-        {\color{white}\Large\bfseries Armando Arredondo Valle};
-    \end{tikzpicture}
-    \vspace{0.55cm}
-
-    \noindent
-    \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
-        \faLinkedin\ \href{https://www.linkedin.com/in/armando-av}{linkedin.com/in/armando-av} \quad
-        \faEnvelope\ \href{mailto:armando.arredondo.valle@gmail.com}{armando.arredondo.valle@gmail.com} &
-        \faGithub\ \href{https://github.com/ArmandoArV}{github.com/ArmandoArV} \quad
-        \faPhone\ +52 777 114 0555
-    \end{tabular*}
-    \vspace{0.15cm}
-}
-
-% Experience command
-\newcommand{\experience}[5]{
-    \noindent
-    \textbf{#1} \hfill \textbf{#2} \\
-    \textit{#3 \color{AccentBlue}\textbf{| #5}} \hfill \textit{#4}
-    \vspace{-5pt}
-    \begin{itemize}
-}
-
-\newcommand{\tech}[1]{\textbf{\color{AccentBlue}#1}}
-\newcommand{\closeexperience}{\end{itemize}}
+% Compact lists
+\setlist[itemize]{left=10pt, nosep, itemsep=0pt, topsep=1pt, parsep=0pt}
 
 \begin{document}
 
-\header
+% ── Header ──
+\begin{center}
+    {\LARGE\bfseries Armando Arredondo Valle}\\[4pt]
+    \small
+    \faEnvelope\ \href{mailto:armando.arredondo.valle@gmail.com}{armando.arredondo.valle@gmail.com} $\vert$
+    \faPhone\ +52 777 114 0555 $\vert$
+    \faLinkedin\ \href{https://www.linkedin.com/in/armando-av}{linkedin.com/in/armando-av} $\vert$
+    \faGithub\ \href{https://github.com/ArmandoArV}{github.com/ArmandoArV}
+\end{center}
 
-% Education
+% ── Education ──
 \section*{Education}
-\textbf{Instituto Tecnológico y de Estudios Superiores de Monterrey (ITESM)} \hfill \textbf{2021--2025} \\
-B.S. in Computer Science and Technology \hfill GPA: 94/100
 
-\textbf{Pontificia Universidad Católica de Chile} \hfill \textbf{2026--2027} \\
-M.Sc. in Artificial Intelligence 
+\textbf{Pontificia Universidad Cat\'{o}lica de Chile} \hfill \textbf{Mar 2026 -- Jul 2027}\\
+M.Sc.\ in Artificial Intelligence
 
-% Experience
+\vspace{3pt}
+\textbf{Tecnol\'{o}gico de Monterrey (ITESM)} \hfill \textbf{Aug 2021 -- Jun 2025}\\
+B.S.\ in Computer Science and Technology \hfill GPA: 94/100
+
+% ── Experience ──
 \section*{Professional Experience}
 
-\experience{Microsoft}{Feb 2025 -- Present}{Software Engineer}{Mexico City}{C\# | .NET | Azure | Cosmos DB | CI/CD}
-    \item Built and operated cloud-native distributed systems on \tech{Azure}, focusing on scalability, high availability, and disaster recovery across \tech{Azure SQL}, \tech{Cosmos DB}, and storage layers
-    \item Developed backend services using \tech{C\#}, \tech{.NET}, \tech{Azure SQL}, and \tech{Cosmos DB}, supporting enterprise-grade workloads and data pipelines
-    \item Designed CI/CD release pipelines (\tech{OneBranch YAML + EV2}) with staged deployments, slot swaps, rollback strategies, and automated validation gates
-    \item Built observability systems using \tech{Azure Monitor} and \tech{Geneva}, enabling proactive detection and mitigation of production issues
-    \item Supported live-site operations including incident response, root cause analysis, and DevOps governance in \tech{Azure DevOps}
-\closeexperience
-
-\experience{Siemens Digital Industries}{May 2024 -- May 2025}{Software Engineer Intern}{Mexico City}{Java | Spring Boot | Oracle | Mendix}
-    \item Delivered full-stack production system using \tech{Java/Spring Boot}
-    \item Optimized \tech{Oracle Database} queries on Windows Server
-    \item Built low-code interfaces in \tech{Mendix} to improve user adoption
-\closeexperience
-
-\experience{Tecnocontrol Vehicular}{Feb 2024 -- Apr 2024}{Software Engineer}{Cuernavaca}{Golang | Node.js | PHP | AWS | Oracle}
-    \item Developed and maintained backend services using \tech{Golang} for core business logic
-    \item Supported legacy systems in \tech{Node.js} and \tech{PHP}
-    \item Integrated and optimized \tech{Oracle Database} workflows
-\closeexperience
-
-\experience{Sonder.mut}{Apr 2023 -- Jan 2024}{Software Developer}{Mexico}{Next.js | React | Golang | PHP}
-    \item Maintained and optimized \tech{Next.js} front-end applications
-    \item Built high-performance APIs using \tech{Go (Golang)} with \tech{Fiber}
-    \item Improved UX and performance via SSR and caching strategies
-\closeexperience
-
-% Publications
-\section*{Publications}
+\textbf{Microsoft} \hfill Mexico City\\[1pt]
+\textit{Software Engineer} \hfill \textit{Sep 2025 -- Present}
 \begin{itemize}
-    \item \textbf{Velasco-Espinal J.A., Calderón-Aguirre A.P., \underline{Arredondo-Valle A.}, et al.} (2025). 
-    \textit{Evolución del acceso a servicios de salud en México tras la eliminación del Seguro Popular}. 
-    Revista Científica Multidisciplinar SAGA.
-    
-    \item \textbf{Fierro-Radilla A.N., Larre-Bolaños C.M., \underline{Arredondo-Valle A.}, et al.} (2022). 
-    \textit{White Blood Cell Detection and Classification in Blood Smear Images}. 
-    Advances in Computational Intelligence.
+    \item Built and operated cloud-native distributed systems on Azure with high availability and disaster recovery across Azure SQL, Cosmos DB, and storage layers
+    \item Designed CI/CD release pipelines (OneBranch YAML + EV2) with staged deployments, slot swaps, rollback strategies, and automated validation gates
+    \item Built observability systems using Azure Monitor and Geneva for proactive production issue detection and mitigation
+    \item Supported live-site operations including incident response, root cause analysis, and DevOps governance in Azure DevOps
+\end{itemize}
+\textit{Software Engineer Intern} \hfill \textit{Feb 2025 -- Aug 2025}
+\begin{itemize}
+    \item Developed an internal documentation chatbot using C\#/.NET (MVC) with Azure OpenAI integration, improving knowledge retrieval for 300+ employees
+    \item Built responsive front-end with React and TypeScript; implemented Azure Blob Storage and authentication
 \end{itemize}
 
-% Skills
-\section*{Technical Skills}
-\begin{tabular}{@{}ll@{}}
-\textbf{Programming:} & \tech{Python}, \tech{JavaScript/TypeScript}, \tech{Java}, \tech{C\#}, \tech{Go} \\
-\textbf{Frontend:} & \tech{React}, \tech{Next.js} \\
-\textbf{Backend:} & \tech{.NET}, \tech{Spring Boot}, \tech{Node.js} \\
-\textbf{Cloud:} & \tech{Azure}, \tech{AWS}, \tech{Docker} \\
-\textbf{Databases:} & \tech{Oracle}, \tech{SQL}, \tech{MongoDB}
-\end{tabular}
-
-% Achievements
-\section*{Achievements}
+\vspace{3pt}
+\textbf{Siemens Digital Industries} \hfill Mexico City\\[1pt]
+\textit{Information Technology Intern} \hfill \textit{May 2024 -- May 2025}
 \begin{itemize}
-    \item \textbf{1st Place} -- NASA Rover Challenge (2022)
-    \item \textbf{2nd Place} -- RPA Hackathon (2023)
-    \item \textbf{Cuahunáhuac Medal} (2024)
+    \item Spearheaded end-to-end development of a full-stack production system using Java and Spring Boot
+    \item Optimized Oracle Database queries on Windows Server, improving system reliability and performance
+    \item Delivered intuitive user interfaces in Mendix, increasing end-user adoption and satisfaction
+\end{itemize}
+
+\vspace{3pt}
+\textbf{Tecnocontrol Vehicular} \hfill Cuernavaca\\[1pt]
+\textit{Software Engineer} \hfill \textit{Feb 2024 -- Apr 2024}
+\begin{itemize}
+    \item Developed backend services in Golang; maintained legacy systems in Node.js and PHP
+    \item Integrated and optimized Oracle Database workflows for seamless cross-application data flow
+\end{itemize}
+
+\vspace{3pt}
+\textbf{Sonder.mut} \hfill Mexico\\[1pt]
+\textit{Software Developer} \hfill \textit{Apr 2023 -- Jan 2024}
+\begin{itemize}
+    \item Maintained and optimized Next.js front-end applications with server-side rendering and caching strategies
+    \item Built high-performance backend APIs using Go with the Fiber framework
+\end{itemize}
+
+% ── Publications ──
+\section*{Publications}
+\begin{itemize}
+    \item Velasco-Espinal J.A., Calder\'{o}n-Aguirre A.P., \underline{Arredondo-Valle A.}, et al.\ (2025). \textit{Evoluci\'{o}n del acceso a servicios de salud en M\'{e}xico tras la eliminaci\'{o}n del Seguro Popular}. Revista Cient\'{\i}fica Multidisciplinar SAGA.
+    \item Fierro-Radilla A.N., Larre-Bola\~{n}os C.M., \underline{Arredondo-Valle A.}, et al.\ (2022). \textit{White Blood Cell Detection and Classification in Blood Smear Images}. Advances in Computational Intelligence.
+\end{itemize}
+
+% ── Skills ──
+\section*{Technical Skills}
+\textbf{Languages:} Python, JavaScript/TypeScript, Java, C\#, Go, PHP\\
+\textbf{Frameworks:} React, Next.js, .NET, Spring Boot, Node.js, Vue.js, Fiber\\
+\textbf{Cloud \& DevOps:} Azure (SQL, Cosmos DB, Blob Storage, Monitor, OpenAI), AWS, Docker, CI/CD\\
+\textbf{Databases:} Oracle, SQL Server, MongoDB, MySQL
+
+% ── Certifications ──
+\section*{Certifications \& Languages}
+Scrum for Ops \& DevOps Fundamentals (SODFC) $\vert$ Introduction to MongoDB $\vert$ Cambridge English B1\\[2pt]
+\textbf{Languages:} Spanish (Native) $\vert$ English (Professional) $\vert$ French (Professional) $\vert$ German (Elementary)
+
+% ── Achievements ──
+\section*{Honors \& Awards}
+\begin{itemize}
+    \item \textbf{1st Place Overall Winner} -- NASA Human Rover Exploration Challenge (2022)
+    \item \textbf{2nd Place} -- RPA Hackathon (2023) \quad $\vert$ \quad \textbf{Cuahun\'{a}huac Medal} (2024)
+    \item \textbf{Finalist} -- 1er Concurso Nacional de Programaci\'{o}n Alan Turing
 \end{itemize}
 
 \end{document}
