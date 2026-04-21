@@ -1,0 +1,44 @@
+name: Build CV PDF
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'main.tex'
+  pull_request:
+    paths:
+      - 'main.tex'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX to PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          latexmk_use_xelatex: false
+          latexmk_shell_escape: true
+          extra_packages: |
+            fontawesome5
+            lm
+            geometry
+            parskip
+            enumitem
+            hyperref
+            xcolor
+            titlesec
+            pgf
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: CV-Armando-PDF
+          path: main.pdf
+          retention-days: 30
