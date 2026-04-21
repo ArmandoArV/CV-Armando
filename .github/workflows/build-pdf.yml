@@ -14,7 +14,6 @@ on:
       - '**/*.png'
       - '**/*.jpg'
       - '**/*.jpeg'
-      - '**/*.pdf'
       - '**/*.svg'
   pull_request:
     paths:
@@ -27,7 +26,6 @@ on:
       - '**/*.png'
       - '**/*.jpg'
       - '**/*.jpeg'
-      - '**/*.pdf'
       - '**/*.svg'
   workflow_dispatch:
 
@@ -35,7 +33,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
 
     steps:
       - name: Checkout repository
@@ -48,9 +46,10 @@ jobs:
           latexmk_use_xelatex: false
           latexmk_shell_escape: false
 
-      - name: Upload PDF artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: CV-Armando-PDF
-          path: main.pdf
-          retention-days: 30
+      - name: Commit PDF to repo
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f main.pdf
+          git diff --cached --quiet && echo "No PDF changes" || git commit -m "build: update compiled PDF [skip ci]" && git push
