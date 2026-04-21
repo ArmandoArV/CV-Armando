@@ -4,13 +4,14 @@
 \usepackage[margin=0.45in]{geometry}
 \usepackage{parskip}
 \usepackage{enumitem}
-\usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{fontawesome5}
 \usepackage{titlesec}
 \usepackage{tikz}
 \usepackage{array}
+\usepackage[T1]{fontenc}
 \usepackage[default]{lmodern}
+\usepackage{hyperref}
 
 % Colors
 \definecolor{ThemeBlue}{RGB}{0,80,160}
@@ -68,6 +69,7 @@
 }
 
 \newcommand{\tech}[1]{\textbf{\color{AccentBlue}#1}}
+\newcommand{\endexperience}{\end{itemize}}
 
 \begin{document}
 
@@ -89,25 +91,25 @@ M.Sc. in Artificial Intelligence
     \item Developed responsive UI with \tech{React/TypeScript} for 300+ internal users
     \item Integrated \tech{Azure OpenAI} for advanced NLP-driven search
     \item Implemented \tech{Azure Blob Storage}, authentication, and \tech{CI/CD} pipelines
-\end{itemize}
+\endexperience
 
 \experience{Siemens Digital Industries}{May 2024 -- May 2025}{Software Engineer Intern}{Mexico City}{Java | Spring Boot | Oracle | Mendix}
     \item Delivered full-stack production system using \tech{Java/Spring Boot}
     \item Optimized \tech{Oracle Database} queries on Windows Server
     \item Built low-code interfaces in \tech{Mendix} to improve user adoption
-\end{itemize}
+\endexperience
 
 \experience{Tecnocontrol Vehicular}{Feb 2024 -- Apr 2024}{Software Engineer}{Cuernavaca}{Golang | Node.js | PHP | AWS | Oracle}
     \item Developed and maintained backend services using \tech{Golang} for core business logic
     \item Supported legacy systems in \tech{Node.js} and \tech{PHP}
     \item Integrated and optimized \tech{Oracle Database} workflows
-\end{itemize}
+\endexperience
 
 \experience{Sonder.mut}{Apr 2023 -- Jan 2024}{Software Developer}{Mexico}{Next.js | React | Golang | PHP}
     \item Maintained and optimized \tech{Next.js} front-end applications
     \item Built high-performance APIs using \tech{Go (Golang)} with \tech{Fiber}
     \item Improved UX and performance via SSR and caching strategies
-\end{itemize}
+\endexperience
 
 % Publications
 \section*{Publications}

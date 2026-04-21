@@ -6,9 +6,29 @@ on:
       - main
     paths:
       - 'main.tex'
+      - '.github/workflows/build-pdf.yml'
+      - '**/*.tex'
+      - '**/*.sty'
+      - '**/*.cls'
+      - '**/*.bib'
+      - '**/*.png'
+      - '**/*.jpg'
+      - '**/*.jpeg'
+      - '**/*.pdf'
+      - '**/*.svg'
   pull_request:
     paths:
       - 'main.tex'
+      - '.github/workflows/build-pdf.yml'
+      - '**/*.tex'
+      - '**/*.sty'
+      - '**/*.cls'
+      - '**/*.bib'
+      - '**/*.png'
+      - '**/*.jpg'
+      - '**/*.jpeg'
+      - '**/*.pdf'
+      - '**/*.svg'
   workflow_dispatch:
 
 jobs:
@@ -26,7 +46,7 @@ jobs:
         with:
           root_file: main.tex
           latexmk_use_xelatex: false
-          latexmk_shell_escape: true
+          latexmk_shell_escape: false
           extra_packages: |
             fontawesome5
             lm
