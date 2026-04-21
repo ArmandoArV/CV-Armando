@@ -12,10 +12,13 @@
 \setlength{\parskip}{0pt}
 \setlength{\parindent}{0pt}
 
-\hypersetup{colorlinks=true, urlcolor=blue!50!black, linkcolor=black}
+% Navy accent color
+\definecolor{navy}{HTML}{1B3A5C}
 
-% Harvard-style sections: bold uppercase with thin rule below
-\titleformat{\section}{\bfseries\normalsize\uppercase}{}{0pt}{}[\vspace{-5pt}\rule{\textwidth}{0.4pt}]
+\hypersetup{colorlinks=true, urlcolor=navy, linkcolor=black}
+
+% Harvard-style sections: bold uppercase navy headings with thin rule below
+\titleformat{\section}{\bfseries\normalsize\color{navy}\uppercase}{}{0pt}{}[\vspace{-5pt}{\color{navy}\rule{\textwidth}{0.4pt}}]
 \titlespacing*{\section}{0pt}{5pt}{2pt}
 
 % Compact lists
@@ -25,7 +28,7 @@
 
 % ── Header ──
 \begin{center}
-    {\LARGE\bfseries Armando Arredondo Valle}\\[4pt]
+    {\LARGE\bfseries\color{navy} Armando Arredondo Valle}\\[4pt]
     \small
     \faEnvelope\ \href{mailto:armando.arredondo.valle@gmail.com}{armando.arredondo.valle@gmail.com} $\vert$
     \faPhone\ +52 777 114 0555 $\vert$
