@@ -1,0 +1,144 @@
+\documentclass[10pt,a4paper]{article}
+
+% Packages
+\usepackage[margin=0.45in]{geometry}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usepackage{array}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{hyperref}
+
+% Colors
+\definecolor{ThemeBlue}{RGB}{0,80,160}
+\definecolor{LightBlue}{RGB}{230,242,255}
+\definecolor{DarkBlue}{RGB}{0,60,120}
+\definecolor{AccentBlue}{RGB}{0,120,215}
+
+% Hyperlinks
+\hypersetup{
+    colorlinks=true,
+    urlcolor=ThemeBlue,
+    linkcolor=DarkBlue
+}
+
+% Section styling
+\titleformat{\section}
+  {\color{DarkBlue}\normalfont\normalsize\bfseries\uppercase}
+  {}
+  {0pt}
+  {\titlerule[0.8pt]\\[-2pt]}
+
+\titlespacing*{\section}{0pt}{5pt}{1pt}
+
+% Lists
+\setlist[itemize]{left=0pt, nosep, itemsep=0pt, topsep=1pt}
+
+% Header
+\newcommand{\header}{
+    \noindent
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[rectangle, fill=DarkBlue, anchor=north, minimum width=\paperwidth, minimum height=0.95cm] 
+        at (current page.north) {};
+        \node[anchor=center] at ([yshift=-0.45cm]current page.north) 
+        {\color{white}\Large\bfseries Armando Arredondo Valle};
+    \end{tikzpicture}
+    \vspace{0.55cm}
+
+    \noindent
+    \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+        \faLinkedin\ \href{https://www.linkedin.com/in/armando-av}{linkedin.com/in/armando-av} \quad
+        \faEnvelope\ \href{mailto:armando.arredondo.valle@gmail.com}{armando.arredondo.valle@gmail.com} &
+        \faGithub\ \href{https://github.com/ArmandoArV}{github.com/ArmandoArV} \quad
+        \faPhone\ +52 777 114 0555
+    \end{tabular*}
+    \vspace{0.15cm}
+}
+
+% Experience command
+\newcommand{\experience}[5]{
+    \noindent
+    \textbf{#1} \hfill \textbf{#2} \\
+    \textit{#3 \color{AccentBlue}\textbf{| #5}} \hfill \textit{#4}
+    \vspace{-5pt}
+    \begin{itemize}
+}
+
+\newcommand{\tech}[1]{\textbf{\color{AccentBlue}#1}}
+\newcommand{\endexperience}{\end{itemize}}
+
+\begin{document}
+
+\header
+
+% Education
+\section*{Education}
+\textbf{Instituto Tecnológico y de Estudios Superiores de Monterrey (ITESM)} \hfill \textbf{2021--2025} \\
+B.S. in Computer Science and Technology \hfill GPA: 94/100
+
+\textbf{Pontificia Universidad Católica de Chile} \hfill \textbf{2026--2027} \\
+M.Sc. in Artificial Intelligence 
+
+% Experience
+\section*{Professional Experience}
+
+\experience{Microsoft}{Feb 2025 -- Present}{Software Engineer}{Mexico City}{C\# | .NET | Azure | React | TypeScript}
+    \item Built internal documentation chatbot using modular \tech{C\#/.NET MVC}
+    \item Developed responsive UI with \tech{React/TypeScript} for 300+ internal users
+    \item Integrated \tech{Azure OpenAI} for advanced NLP-driven search
+    \item Implemented \tech{Azure Blob Storage}, authentication, and \tech{CI/CD} pipelines
+\endexperience
+
+\experience{Siemens Digital Industries}{May 2024 -- May 2025}{Software Engineer Intern}{Mexico City}{Java | Spring Boot | Oracle | Mendix}
+    \item Delivered full-stack production system using \tech{Java/Spring Boot}
+    \item Optimized \tech{Oracle Database} queries on Windows Server
+    \item Built low-code interfaces in \tech{Mendix} to improve user adoption
+\endexperience
+
+\experience{Tecnocontrol Vehicular}{Feb 2024 -- Apr 2024}{Software Engineer}{Cuernavaca}{Golang | Node.js | PHP | AWS | Oracle}
+    \item Developed and maintained backend services using \tech{Golang} for core business logic
+    \item Supported legacy systems in \tech{Node.js} and \tech{PHP}
+    \item Integrated and optimized \tech{Oracle Database} workflows
+\endexperience
+
+\experience{Sonder.mut}{Apr 2023 -- Jan 2024}{Software Developer}{Mexico}{Next.js | React | Golang | PHP}
+    \item Maintained and optimized \tech{Next.js} front-end applications
+    \item Built high-performance APIs using \tech{Go (Golang)} with \tech{Fiber}
+    \item Improved UX and performance via SSR and caching strategies
+\endexperience
+
+% Publications
+\section*{Publications}
+\begin{itemize}
+    \item \textbf{Velasco-Espinal J.A., Calderón-Aguirre A.P., \underline{Arredondo-Valle A.}, et al.} (2025). 
+    \textit{Evolución del acceso a servicios de salud en México tras la eliminación del Seguro Popular}. 
+    Revista Científica Multidisciplinar SAGA.
+    
+    \item \textbf{Fierro-Radilla A.N., Larre-Bolaños C.M., \underline{Arredondo-Valle A.}, et al.} (2022). 
+    \textit{White Blood Cell Detection and Classification in Blood Smear Images}. 
+    Advances in Computational Intelligence.
+\end{itemize}
+
+% Skills
+\section*{Technical Skills}
+\begin{tabular}{@{}ll@{}}
+\textbf{Programming:} & \tech{Python}, \tech{JavaScript/TypeScript}, \tech{Java}, \tech{C\#}, \tech{Go} \\
+\textbf{Frontend:} & \tech{React}, \tech{Next.js} \\
+\textbf{Backend:} & \tech{.NET}, \tech{Spring Boot}, \tech{Node.js} \\
+\textbf{Cloud:} & \tech{Azure}, \tech{AWS}, \tech{Docker} \\
+\textbf{Databases:} & \tech{Oracle}, \tech{SQL}, \tech{MongoDB}
+\end{tabular}
+
+% Achievements
+\section*{Achievements}
+\begin{itemize}
+    \item \textbf{1st Place} -- NASA Rover Challenge (2022)
+    \item \textbf{2nd Place} -- RPA Hackathon (2023)
+    \item \textbf{Cuahunáhuac Medal} (2024)
+\end{itemize}
+
+\end{document}
